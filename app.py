@@ -9,7 +9,7 @@ Finalmente o usuário deve poder digitar “parar” a qualquer momento para con
 
 '''
 import random
-
+import os
 # Banco de Dados para gerar dados aleatórios
 nomes = [
     "João Silva",
@@ -188,13 +188,26 @@ def rodar_geracao():
         print(estilo(f'{indice} - {valor}', cor='36'))
 
     # Escolher qual dado deve ser gerado
-    opcao = input("Digite sua opção: -> ").lower()
+    opcao = input(estilo("Digite sua opção: -> ".lower(), cor='32')).lower()
+    
     if 'parar' in opcao:
         print(estilo('Programa encerrado, com sucesso!', cor='31', estilo='1'))
+        return
     else:
-        numero_de_geracoes = int(input("Quantos elementos devem ser gerados? -> "))
-        # Escolher se dados devem ser salvos em arquivo
-        opcao_salvar_dados = input("[1]Exibir na tela | [2] Exibir e Salvar em arquivo texto. \nQual opção você escolhe? -> ")
+        
+        while True:
+            mensagem_erro = 'Erro: Insira apenas números!'
+            try:
+                numero_de_geracoes = int(input(estilo("Quantos elementos devem ser gerados? -> ", cor='32')))
+                opcao_salvar_dados = int(input(estilo("[1] Exibir na tela | [2] Exibir e Salvar em arquivo texto. \nQual opção você escolhe? -> ", cor='32')))
+                if str(opcao_salvar_dados) not in ['1', '2']:
+                    mensagem_erro = 'Erro: Insira apenas 1 ou 2.'
+                    raise ValueError(mensagem_erro)
+                break
+            except ValueError:
+                print(estilo(mensagem_erro, cor='31'))
+
+        os.system('cls')
 
         # Gerar dados
         dados_gerados = []
@@ -217,7 +230,6 @@ def rodar_geracao():
                 dados_gerados[geracao_de_dados]['cidade']= random.choice(cidades)
             if '4' in opcao:
                 dados_gerados[geracao_de_dados]['estado']= random.choice(estados)
-
             print(estilo('>>>', cor='34'))
             print(estilo(f'DADOS GERADOS - Geração nº {geracao_de_dados+1}', cor='34', estilo='1'))
 

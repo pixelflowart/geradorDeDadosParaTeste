@@ -1,0 +1,8 @@
+{'telefone': '321987654', 'email': 'pedro.oliveira@example.com', 'cidade': 'Joinville'}
+{'telefone': '123456789', 'email': 'patricia.silva@example.com', 'cidade': 'Belo Horizonte'}
+{'telefone': '789321654', 'email': 'ana.souza@example.com', 'cidade': 'São Luís'}
+{'telefone': '987456321', 'email': 'joao.silva@example.com', 'cidade': 'Recife'}
+{'telefone': '456123789', 'email': 'joao.silva@example.com', 'cidade': 'Feira de Santana'}
+{'telefone': '654789123', 'email': 'joao.silva@example.com', 'cidade': 'Fortaleza'}
+{'telefone': '321654987', 'email': 'maria.santos@example.com', 'cidade': 'Maceió'}
+{'telefone': '987321654', 'email': 'felipe.oliveira@example.com', 'cidade': 'São Paulo'}
